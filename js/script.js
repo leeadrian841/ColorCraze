@@ -1,45 +1,43 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var $body = $('body')
-  var $middle = $('.middle')
-  var $bottom = $('.bottom')
-  var $start = $('.start')
-  var $restart = $('.restart')
+  var $introPanel = $('.intro')
+  var $boardPanel = $('.board')
+  var $startButton = $('.start')
+  var $restartButton = $('.restart')
+  // var $boxes = $('.box')
+  var $boardInside = $boardPanel.children()
 
-  var player1 = 0
-  var player2 = 0
-  var player1current = 0
-  var player2current = 0
-  var currentPlayer = 0
+  var boxes = 10
+  var openBox = ''
+  var openTile = ''
+  var Tiles = ['https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif',
+  'https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif',
+  'https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/ivysaur.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/charmeleon.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/wartortle.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/blastoise.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/raichu.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/gastly.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/haunter.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif']
 
-  $start.on('click', startGame)
-  $restart.on('click', restartGame)
-
-  var startGame = function() {
-
-    var $restart = $('<button type="button" class="btn btn-danger restart">Restart</button>')
-    $bottom.append($restart)
-
-
-  //   function playTurn() {
-  //
-  //   }
-  //   function isGameOver() {
-  //
-  //   }
-  //   function whoWon() {
-  //     if (player1current === player2current) {
-  //       return 3 // Draw
-  //       alert ('This game is a draw! Please play again.')
-  //     } if (player1current > player2current) {
-  //       return 1 // Player 1 wins
-  //       alert ('Player 1 wins!')
-  //     } else {
-  //       return 2 // Player 2 wins
-  //       alert ('Player 2 wins!')
-  //     }
-  //   }
+  function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
   }
-  function restartGame() {
+  function shuffleBoxes() {
+    for (var i = 0; i <= boxes; i++) {
+      $boardPanel.append('<div class="box"><img src="' + Tiles[random(0, 13)] + '"></div>')
+    }
+  }
+  function clickTile() {
 
   }
+  $boardPanel.hide()
+  $startButton.on('click', startGame)
+  $restartButton.on('click', restartGame)
+
+  function startGame() {
+    shuffleBoxes()
+    $boardPanel.show()
+    $introPanel.hide()
+
+
+  }
+  // function restartGame() {
+  //   $introPanel.show()
+  //   $boardPanel.hide()
+  // }
 })

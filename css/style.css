@@ -1,1 +1,22 @@
-
+body{
+  background-color: #FAE3C6;
+}
+h1{
+  text-align: center;
+}
+tr{
+  display: inline-block;
+}
+.box{
+  width: 75px;
+  height: 75px;
+  /*background-image: url("/img/pokeball.png");*/
+  background-size: cover;
+  border: 1px solid black;
+}
+.intro{
+  text-align: center;
+}
+#footer{
+  text-align: center;
+}
