@@ -4,6 +4,13 @@ body{
 #footer{
   text-align: center;
 }
+.header{
+  text-align: center;
+}
+.wordPanel{
+  display: block;
+  height: 125px;
+}
 .colorPanel{
   display: block;
   width: 300px;
@@ -26,4 +33,24 @@ body{
 }
 .boxblue{
   background-color: blue;
+}
+.wordgreen{
+  color: green;
+  font-weight: bolder;
+  font-size: 50px;
+}
+.wordred{
+  color: red;
+  font-weight: bolder;
+  font-size: 50px;
+}
+.wordyellow{
+  color: yellow;
+  font-weight: bolder;
+  font-size: 50px;
+}
+.wordblue{
+  color: blue;
+  font-weight: bolder;
+  font-size: 50px;
 }
