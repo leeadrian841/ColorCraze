@@ -34,7 +34,6 @@ $(document).ready(function () {
     $boardPanel.show()
     $introPanel.hide()
 
-
   }
   // function restartGame() {
   //   $introPanel.show()
