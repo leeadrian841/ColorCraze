@@ -1,42 +1,55 @@
 $(document).ready(function () {
   var $body = $('body')
-  var $introPanel = $('.intro')
-  var $boardPanel = $('.board')
+  var $header = $('header')
+  var $wordPanel = $('.wordPanel')
+  var $colorPanel = $('.colorPanel')
   var $startButton = $('.start')
   var $restartButton = $('.restart')
-  // var $boxes = $('.box')
-  var $boardInside = $boardPanel.children()
 
-  var boxes = 10
-  var openBox = ''
-  var openTile = ''
-  var Tiles = ['https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif',
-  'https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif',
-  'https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/ivysaur.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/charmeleon.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/wartortle.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/blastoise.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/raichu.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/gastly.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/haunter.gif', 'https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif']
+  var colorArr = ['red', 'blue', 'yellow', 'green']
+  $restartButton.hide()
 
-  function random(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min
+  function shuffle (array) {
+    var i = 0
+    var j = 0
+    var temp = null
+    for (i = array.length - 1; i > 0; i -= 1) {
+      j = Math.floor(Math.random() * (i + 1))
+      temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
+    }
+    return array
   }
-  function shuffleBoxes() {
-    for (var i = 0; i <= boxes; i++) {
-      $boardPanel.append('<div class="box"><img src="' + Tiles[random(0, 13)] + '"></div>')
+  // function randomiser (min, max) {
+  //   return Math.floor(Math.random() * (max - min - 1)) + min
+  // }
+  function startClick() {
+    generateColor()
+    $startButton.hide()
+    $restartButton.show()
+    $wordPanel.show()
+    $colorPanel.show()
+    $restartButton.on('click', restartClick)
+  }
+  function restartClick() {
+    $restartButton.hide()
+    $startButton.show()
+    $colorPanel.children().remove()
+    $wordPanel.hide()
+    $colorPanel.children().hide()
+  }
+  function generateColor() {
+    var shuffleColor = shuffle(colorArr)
+    for (var i = 0; i < 4; i++) {
+      $colorPanel.append('<div class="box' + shuffleColor[i] + '"></div>')
     }
   }
-  function clickTile() {
-
+  function generateWord() {
+    $wordPanel.append('<div class="red">blue</div>')
   }
-  $boardPanel.hide()
-  $startButton.on('click', startGame)
-  $restartButton.on('click', restartGame)
-
-  function startGame() {
-    shuffleBoxes()
-    $boardPanel.show()
-    $introPanel.hide()
-
+  function matcher() {
+    if(($) === ())
   }
-  // function restartGame() {
-  //   $introPanel.show()
-  //   $boardPanel.hide()
-  // }
+  $startButton.on('click', startClick)
 })

@@ -1,22 +1,26 @@
 body{
   background-color: #FAE3C6;
 }
-h1{
-  text-align: center;
+.colorPanel{
+  display: block;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
 }
-tr{
-  display: inline-block;
+.colorPanel div{
+  width: 150px;
+  height: 150px;
+  float: left;
 }
-.box{
-  width: 75px;
-  height: 75px;
-  /*background-image: url("/img/pokeball.png");*/
-  background-size: cover;
-  border: 1px solid black;
+.boxgreen{
+  background-color: green;
 }
-.intro{
-  text-align: center;
+.boxred{
+  background-color: red;
 }
-#footer{
-  text-align: center;
+.boxyellow{
+  background-color: yellow;
+}
+.boxblue{
+  background-color: blue;
 }
