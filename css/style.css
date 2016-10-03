@@ -1,6 +1,9 @@
 body{
   background-color: #FAE3C6;
 }
+#footer{
+  text-align: center;
+}
 .colorPanel{
   display: block;
   width: 300px;

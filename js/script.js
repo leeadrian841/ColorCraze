@@ -48,8 +48,8 @@ $(document).ready(function () {
   function generateWord() {
     $wordPanel.append('<div class="red">blue</div>')
   }
-  function matcher() {
-    if(($) === ())
-  }
+  // function matcher() {
+  //   if(($) === ())
+  // }
   $startButton.on('click', startClick)
 })
