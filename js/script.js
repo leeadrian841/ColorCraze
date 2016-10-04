@@ -7,7 +7,8 @@ $(document).ready(function () {
   var $restartButton = $('.restart')
 
   var colorArr = ['red', 'blue', 'yellow', 'green']
-  var wordArr = ['green', 'purple', 'grey', 'black', 'blue', 'pink', 'yellow', 'orange', 'gold', 'silver']
+  var wordArr = ['green'] //, 'purple', 'grey', 'black']
+  // , 'blue', 'pink', 'yellow', 'orange', 'gold', 'silver']
   $restartButton.hide()
 
   function shuffle (array) {
@@ -23,8 +24,12 @@ $(document).ready(function () {
     return array
   }
   function startClick() {
-    // generateColor()
+    generateColor()
     generateWord()
+    $('.box.green').on('click', matcher)
+    $('.box.red').on('click', matcher)
+    $('.box.blue').on('click', matcher)
+    $('.box.yellow').on('click', matcher)
     $startButton.hide()
     $restartButton.show()
     $wordPanel.children().show()
@@ -42,20 +47,26 @@ $(document).ready(function () {
   function generateColor() {
     var shuffleColor = shuffle(colorArr)
     for (var i = 0; i < colorArr.length; i++) {
-      $colorPanel.append('<div class="box' + shuffleColor[i] + '"></div>')
+      $colorPanel.append('<div class="box ' + shuffleColor[i] + '"></div>')
     }
   }
   function generateWord() {
-    var shuffleWord = shuffle(wordArr)
+    // var shuffleWord = shuffle(wordArr)
     var shuffleColor = shuffle(colorArr)
-    // $wordPanel.append('<div class="word' + shuffleColor + '">' + shuffleWord + '</div>')
+    $wordPanel.append('<div class="word red">' + wordArr + '</div>')
+    // for (var i = 0; i < wordArr.length; i++) {
+    //   $wordPanel.append('<div class="word ' + shuffleColor[i] + '">' + wordArr[i] + '</div>')
+    // }
   }
-  // function matcher() {
-  //   if () {
+  function matcher() {
+    if ($(this).hasClass('red') === $('.wordPanel').hasClass('red')) {
+      alert("You have clicked the wrong one!")
+    } else {
+      alert("You have clicked the correct one!")
+    }
+  }
+  // function () {
   //
-  //   } else {
-  //
-  //   }
   // }
   $startButton.on('click', startClick)
 })

@@ -10,6 +10,7 @@ body{
 .wordPanel{
   display: block;
   height: 125px;
+  text-align: center;
 }
 .colorPanel{
   display: block;
@@ -22,34 +23,34 @@ body{
   height: 150px;
   float: left;
 }
-.boxgreen{
+.box.green{
   background-color: green;
 }
-.boxred{
+.box.red{
   background-color: red;
 }
-.boxyellow{
+.box.yellow{
   background-color: yellow;
 }
-.boxblue{
+.box.blue{
   background-color: blue;
 }
-.wordgreen{
+.word.green{
   color: green;
   font-weight: bolder;
   font-size: 50px;
 }
-.wordred{
+.word.red{
   color: red;
   font-weight: bolder;
   font-size: 50px;
 }
-.wordyellow{
+.word.yellow{
   color: yellow;
   font-weight: bolder;
   font-size: 50px;
 }
-.wordblue{
+.word.blue{
   color: blue;
   font-weight: bolder;
   font-size: 50px;
