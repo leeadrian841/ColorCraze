@@ -3,13 +3,16 @@ $(document).ready(function () {
   var $header = $('header')
   var $wordPanel = $('.wordPanel')
   var $colorPanel = $('.colorPanel')
+  var $timerPanel = $('.timer')
   var $startButton = $('.start')
   var $restartButton = $('.restart')
 
   var colorArr = ['red', 'blue', 'yellow', 'green']
-  var wordArr = ['green'] //, 'purple', 'grey', 'black']
-  // , 'blue', 'pink', 'yellow', 'orange', 'gold', 'silver']
+  var wordArr = ['green', 'purple', 'grey', 'black', 'purple', 'black', 'silver', 'yellow']
+  var timerID
+  var mseconds = 0
   $restartButton.hide()
+  $wordPanel.hide()
 
   function shuffle (array) {
     var i = 0
@@ -24,19 +27,18 @@ $(document).ready(function () {
     return array
   }
   function startClick() {
-    generateColor()
     generateWord()
-    $('.box.green').on('click', matcher)
-    $('.box.red').on('click', matcher)
-    $('.box.blue').on('click', matcher)
-    $('.box.yellow').on('click', matcher)
+    generateColor()
+    // timerStart()
+    $('.colorPanel').on('click', '.box', matcher)
     $startButton.hide()
     $restartButton.show()
-    $wordPanel.children().show()
-    $colorPanel.children().show()
+    $wordPanel.show()
+    $colorPanel.show()
     $restartButton.on('click', restartClick)
   }
   function restartClick() {
+    // timerStop()
     $restartButton.hide()
     $startButton.show()
     $wordPanel.children().remove()
@@ -44,29 +46,48 @@ $(document).ready(function () {
     $wordPanel.children().hide()
     $colorPanel.children().hide()
   }
+  function generateWord() {
+    var shuffleWord = shuffle(wordArr)
+    var $wordChildren = $wordPanel.children()
+    $wordChildren.append('<div class="word red">' + shuffleWord[0] + '</div>')
+  }
   function generateColor() {
     var shuffleColor = shuffle(colorArr)
-    for (var i = 0; i < colorArr.length; i++) {
+    for (var i = 0; i < shuffleColor.length; i++) {
       $colorPanel.append('<div class="box ' + shuffleColor[i] + '"></div>')
     }
   }
-  function generateWord() {
-    // var shuffleWord = shuffle(wordArr)
-    var shuffleColor = shuffle(colorArr)
-    $wordPanel.append('<div class="word red">' + wordArr + '</div>')
-    // for (var i = 0; i < wordArr.length; i++) {
-    //   $wordPanel.append('<div class="word ' + shuffleColor[i] + '">' + wordArr[i] + '</div>')
-    // }
+  function randomWord() {
+    var shuffleWord = shuffle(wordArr)
+    var $wordChildren = $wordPanel.children()
+    $wordChildren.text(shuffleWord[0])
   }
-  function matcher() {
-    if ($(this).hasClass('red') === $('.wordPanel').hasClass('red')) {
-      alert("You have clicked the wrong one!")
-    } else {
-      alert("You have clicked the correct one!")
+  function randomColor() {
+    var shuffleColor = shuffle(colorArr)
+    for (var i = 0; i < shuffleColor.length; i++) {
+      $colorPanel.children().remove()
+      $colorPanel.append('<div class="box ' + shuffleColor[i] + '"></div>')
     }
   }
-  // function () {
-  //
-  // }
+  function matcher() {
+    var $wordChildren = $wordPanel.children()
+    if ($(this).hasClass('red') === $wordChildren.hasClass('red')) {
+      randomWord()
+      randomColor()
+    }
+  }
+  function timerCount () {
+    // var head1 = body.querySelector('#timer')
+    $timerPanel.text('Time elapsed: ' + mseconds + 'ms')
+    mseconds += 100
+    // parseFloat(seconds.toFixed(2))
+  }
+  function timerStart () {
+    timerID = setInterval(timerCount, 100)
+    // parseFloat(timerID.toFixed(2))
+  }
+  function timerStop() {
+    clearInterval(timerID)
+  }
   $startButton.on('click', startClick)
 })
