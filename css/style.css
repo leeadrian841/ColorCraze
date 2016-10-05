@@ -22,30 +22,30 @@ body{
   height: 50px;
 }
 .box.green{
-  background-color: green;
+  background-color: #9AF20C;
 }
 .box.red{
-  background-color: red;
+  background-color: #F20C1F;
 }
 .box.yellow{
-  background-color: yellow;
+  background-color: #FFE900;
 }
 .box.blue{
-  background-color: blue;
+  background-color: #1696E5;
 }
 .word{
   font-size: 65px;
   font-weight: bolder;
 }
 .word.green{
-  color: green;
+  color: #9AF20C;
 }
 .word.red{
-  color: red;
+  color: #F20C1F;
 }
 .word.yellow{
-  color: yellow;
+  color: #FFE900;
 }
 .word.blue{
-  color: blue;
+  color: #1696E5;
 }
