@@ -13,7 +13,7 @@ $(document).ready(function () {
   var wordArr = ['GREEN', 'PURPLE', 'GREY', 'BLACK', 'SILVER', 'YELLOW', 'RED', 'BLUE', 'GOLD', 'WHITE', 'PINK', 'CYAN']
   var timerID
   var score = 0
-  var seconds = 5
+  var seconds = 30
   $restartButton.hide()
   $wordPanel.children().hide()
   $miscPanel.children().hide()
