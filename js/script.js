@@ -3,7 +3,9 @@ $(document).ready(function () {
   var $header = $('header')
   var $wordPanel = $('.wordPanel')
   var $colorPanel = $('.colorPanel')
+  var $miscPanel = $('.miscPanel')
   var $timerPanel = $('.timer')
+  var $scorePanel = $('.score')
   var $startButton = $('.start')
   var $restartButton = $('.restart')
 
@@ -11,9 +13,11 @@ $(document).ready(function () {
   var wordArr = ['GREEN', 'PURPLE', 'GREY', 'BLACK', 'SILVER', 'YELLOW', 'RED', 'BLUE', 'GOLD', 'WHITE', 'PINK', 'CYAN']
   var timerID
   var score = 0
-  var seconds = 45
+  var seconds = 5
   $restartButton.hide()
   $wordPanel.children().hide()
+  $miscPanel.children().hide()
+  $startButton.on('click', startClick)
 
   function shuffle (array) {
     var i = 0
@@ -31,17 +35,20 @@ $(document).ready(function () {
     generateWord()
     generateColor()
     timerStart()
+    startScore()
     $('.colorPanel').on('click', '.box', matcher)
     $startButton.hide()
     $restartButton.show()
     $wordPanel.show()
     $colorPanel.show()
+    $miscPanel.children().show()
     $restartButton.on('click', restartClick)
   }
   function restartClick() {
     timerStop()
     $restartButton.hide()
     $startButton.show()
+    $timerPanel.hide()
     $wordPanel.children().remove()
     $colorPanel.children().remove()
     $wordPanel.children().hide()
@@ -77,18 +84,30 @@ $(document).ready(function () {
     if ($(this).css('background-color') === $wordChildren.css('color')) {
       randomWord()
       randomColor()
-      score += 1
+      addScore()
     }
   }
   function timerCount () {
-    $timerPanel.text('Time left: ' + seconds + 's')
     seconds -= 1
+    $timerPanel.text('Time left: ' + seconds + 's')
+    if (seconds === 0) {
+      alert('TIME UP! Please click "OK" to start a new game. Your score is ' + score + '.')
+      location.reload()
+    }
   }
   function timerStart () {
+    $timerPanel.text('Time left: ' + seconds + 's')
     timerID = setInterval(timerCount, 1000)
   }
   function timerStop() {
     clearInterval(timerID)
   }
-  $startButton.on('click', startClick)
+  function startScore() {
+    score = 0
+    $scorePanel.text('Score: ' + score)
+  }
+  function addScore() {
+    score += 1
+    $scorePanel.text('Score: ' + score)
+  }
 })

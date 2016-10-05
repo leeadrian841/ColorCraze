@@ -1,30 +1,25 @@
 body{
   background-color: #FAE3C6;
-}
-#footer{
-  text-align: center;
-}
-.header{
   text-align: center;
 }
 .wordPanel{
   display: block;
-  height: 125px;
-  text-align: center;
+  height: 120px;
 }
 .colorPanel{
   display: block;
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   margin: 0 auto;
 }
 .colorPanel div{
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   float: left;
 }
-.timer{
-  text-align: center;
+.miscPanel{
+  display: block;
+  height: 50px;
 }
 .box.green{
   background-color: green;
