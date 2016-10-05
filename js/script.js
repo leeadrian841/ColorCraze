@@ -8,9 +8,10 @@ $(document).ready(function () {
   var $restartButton = $('.restart')
 
   var colorArr = ['red', 'blue', 'yellow', 'green']
-  var wordArr = ['green', 'purple', 'grey', 'black', 'purple', 'black', 'silver', 'yellow']
+  var wordArr = ['GREEN', 'PURPLE', 'GREY', 'BLACK', 'SILVER', 'YELLOW', 'RED', 'BLUE', 'GOLD', 'WHITE', 'PINK', 'CYAN']
   var timerID
-  var score = 10000
+  var score = 0
+  var seconds = 45
   $restartButton.hide()
   $wordPanel.children().hide()
 
@@ -29,7 +30,7 @@ $(document).ready(function () {
   function startClick() {
     generateWord()
     generateColor()
-    // timerStart()
+    timerStart()
     $('.colorPanel').on('click', '.box', matcher)
     $startButton.hide()
     $restartButton.show()
@@ -38,7 +39,7 @@ $(document).ready(function () {
     $restartButton.on('click', restartClick)
   }
   function restartClick() {
-    // timerStop()
+    timerStop()
     $restartButton.hide()
     $startButton.show()
     $wordPanel.children().remove()
@@ -58,8 +59,10 @@ $(document).ready(function () {
   }
   function randomWord() {
     var shuffleWord = shuffle(wordArr)
+    var shuffleColor = shuffle(colorArr)
     var $wordChildren = $wordPanel.children()
-    $wordChildren.text(shuffleWord[0])
+    $wordChildren.remove()
+    $wordPanel.append('<div class="word ' + shuffleColor[0] + '">' + shuffleWord[0] + '</div>')
   }
   function randomColor() {
     var shuffleColor = shuffle(colorArr)
@@ -71,20 +74,18 @@ $(document).ready(function () {
   }
   function matcher() {
     var $wordChildren = $wordPanel.children()
-    if ($(this).hasClass('red') === $wordChildren.hasClass('red')) {
+    if ($(this).css('background-color') === $wordChildren.css('color')) {
       randomWord()
       randomColor()
+      score += 1
     }
   }
   function timerCount () {
-    // var head1 = body.querySelector('#timer')
-    $timerPanel.text('Score: ' + score)
-    score -= 100
-    // parseFloat(seconds.toFixed(2))
+    $timerPanel.text('Time left: ' + seconds + 's')
+    seconds -= 1
   }
   function timerStart () {
-    timerID = setInterval(timerCount, 100)
-    // parseFloat(timerID.toFixed(2))
+    timerID = setInterval(timerCount, 1000)
   }
   function timerStop() {
     clearInterval(timerID)
