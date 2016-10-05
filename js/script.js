@@ -10,9 +10,9 @@ $(document).ready(function () {
   var colorArr = ['red', 'blue', 'yellow', 'green']
   var wordArr = ['green', 'purple', 'grey', 'black', 'purple', 'black', 'silver', 'yellow']
   var timerID
-  var mseconds = 0
+  var score = 10000
   $restartButton.hide()
-  $wordPanel.hide()
+  $wordPanel.children().hide()
 
   function shuffle (array) {
     var i = 0
@@ -48,8 +48,7 @@ $(document).ready(function () {
   }
   function generateWord() {
     var shuffleWord = shuffle(wordArr)
-    var $wordChildren = $wordPanel.children()
-    $wordChildren.append('<div class="word red">' + shuffleWord[0] + '</div>')
+    $wordPanel.append('<div class="word red">' + shuffleWord[0] + '</div>')
   }
   function generateColor() {
     var shuffleColor = shuffle(colorArr)
@@ -64,8 +63,9 @@ $(document).ready(function () {
   }
   function randomColor() {
     var shuffleColor = shuffle(colorArr)
+    var $colorChildren = $colorPanel.children()
     for (var i = 0; i < shuffleColor.length; i++) {
-      $colorPanel.children().remove()
+      $colorChildren.remove()
       $colorPanel.append('<div class="box ' + shuffleColor[i] + '"></div>')
     }
   }
@@ -78,8 +78,8 @@ $(document).ready(function () {
   }
   function timerCount () {
     // var head1 = body.querySelector('#timer')
-    $timerPanel.text('Time elapsed: ' + mseconds + 'ms')
-    mseconds += 100
+    $timerPanel.text('Score: ' + score)
+    score -= 100
     // parseFloat(seconds.toFixed(2))
   }
   function timerStart () {
