@@ -2,12 +2,18 @@ body{
   background-color: #FAE3C6;
   text-align: center;
 }
+.dynamicPanel{
+  width: 60%;
+  float: right;
+}
+.miscPanel{
+  width: 40%;
+  float: left;
+}
 .wordPanel{
-  display: block;
   height: 120px;
 }
 .colorPanel{
-  display: block;
   width: 250px;
   height: 250px;
   margin: 0 auto;
@@ -17,9 +23,13 @@ body{
   height: 125px;
   float: left;
 }
-.miscPanel{
-  display: block;
-  height: 50px;
+.timer{
+  height: 185px;
+  line-height: 185px;
+}
+.score{
+  height: 185px;
+  line-height: 185px;
 }
 .box.green{
   background-color: #9AF20C;
