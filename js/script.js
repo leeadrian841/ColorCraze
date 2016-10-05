@@ -53,6 +53,7 @@ $(document).ready(function () {
     $colorPanel.children().remove()
     $wordPanel.children().hide()
     $colorPanel.children().hide()
+    $miscPanel.children().hide()
   }
   function generateWord() {
     var shuffleWord = shuffle(wordArr)
@@ -100,6 +101,7 @@ $(document).ready(function () {
     timerID = setInterval(timerCount, 1000)
   }
   function timerStop() {
+    seconds = 30
     clearInterval(timerID)
   }
   function startScore() {
