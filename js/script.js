@@ -12,11 +12,10 @@ $(document).ready(function () {
   var colorArr = ['red', 'blue', 'yellow', 'green']
   var wordArr = ['GREEN', 'PURPLE', 'GREY', 'BLACK', 'SILVER', 'YELLOW', 'RED', 'BLUE', 'GOLD', 'WHITE', 'PINK', 'CYAN']
   var timerID
-  var score = 0
-  var seconds = 30
+  var score
+  var seconds
   $restartButton.hide()
   $wordPanel.children().hide()
-  $miscPanel.children().hide()
   $startButton.on('click', startClick)
 
   function shuffle (array) {
@@ -41,19 +40,16 @@ $(document).ready(function () {
     $restartButton.show()
     $wordPanel.show()
     $colorPanel.show()
-    $miscPanel.children().show()
     $restartButton.on('click', restartClick)
   }
   function restartClick() {
     timerStop()
     $restartButton.hide()
     $startButton.show()
-    $timerPanel.hide()
     $wordPanel.children().remove()
     $colorPanel.children().remove()
     $wordPanel.children().hide()
     $colorPanel.children().hide()
-    $miscPanel.children().hide()
   }
   function generateWord() {
     var shuffleWord = shuffle(wordArr)
@@ -97,14 +93,16 @@ $(document).ready(function () {
     }
   }
   function timerStart () {
+    seconds = 30
     $timerPanel.text('Time left: ' + seconds + 's')
     timerID = setInterval(timerCount, 1000)
   }
   function timerStop() {
-    seconds = 30
+    $timerPanel.text('Time left: ')
     clearInterval(timerID)
   }
   function startScore() {
+    $scorePanel.text('Score: ')
     score = 0
     $scorePanel.text('Score: ' + score)
   }
