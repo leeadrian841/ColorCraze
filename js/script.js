@@ -86,7 +86,7 @@ $(document).ready(function () {
   }
   function timerCount () {
     seconds -= 1
-    $timerPanel.text('Time left: ' + seconds + 's')
+    $timerPanel.text(seconds + 's')
     if (seconds === 0) {
       alert('TIME UP! Please click "OK" to start a new game. Your score is ' + score + '.')
       location.reload()
@@ -94,20 +94,18 @@ $(document).ready(function () {
   }
   function timerStart () {
     seconds = 30
-    $timerPanel.text('Time left: ' + seconds + 's')
+    $timerPanel.text(seconds + 's')
     timerID = setInterval(timerCount, 1000)
   }
   function timerStop() {
-    $timerPanel.text('Time left: ')
     clearInterval(timerID)
   }
   function startScore() {
-    $scorePanel.text('Score: ')
     score = 0
-    $scorePanel.text('Score: ' + score)
+    $scorePanel.text(score)
   }
   function addScore() {
     score += 1
-    $scorePanel.text('Score: ' + score)
+    $scorePanel.text(score)
   }
 })
