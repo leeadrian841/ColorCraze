@@ -30,7 +30,7 @@ $(document).ready(function () {
     }
     return array
   }
-  function startClick() {
+  function startClick () {
     generateWord()
     generateColor()
     timerStart()
@@ -42,7 +42,7 @@ $(document).ready(function () {
     $colorPanel.show()
     $restartButton.on('click', restartClick)
   }
-  function restartClick() {
+  function restartClick () {
     timerStop()
     $restartButton.hide()
     $startButton.show()
@@ -51,24 +51,24 @@ $(document).ready(function () {
     $wordPanel.children().hide()
     $colorPanel.children().hide()
   }
-  function generateWord() {
+  function generateWord () {
     var shuffleWord = shuffle(wordArr)
     $wordPanel.append('<div class="word red">' + shuffleWord[0] + '</div>')
   }
-  function generateColor() {
+  function generateColor () {
     var shuffleColor = shuffle(colorArr)
     for (var i = 0; i < shuffleColor.length; i++) {
       $colorPanel.append('<div class="box ' + shuffleColor[i] + '"></div>')
     }
   }
-  function randomWord() {
+  function randomWord () {
     var shuffleWord = shuffle(wordArr)
     var shuffleColor = shuffle(colorArr)
     var $wordChildren = $wordPanel.children()
     $wordChildren.remove()
     $wordPanel.append('<div class="word ' + shuffleColor[0] + '">' + shuffleWord[0] + '</div>')
   }
-  function randomColor() {
+  function randomColor () {
     var shuffleColor = shuffle(colorArr)
     var $colorChildren = $colorPanel.children()
     for (var i = 0; i < shuffleColor.length; i++) {
@@ -76,7 +76,7 @@ $(document).ready(function () {
       $colorPanel.append('<div class="box ' + shuffleColor[i] + '"></div>')
     }
   }
-  function matcher() {
+  function matcher () {
     var $wordChildren = $wordPanel.children()
     if ($(this).css('background-color') === $wordChildren.css('color')) {
       randomWord()
@@ -97,14 +97,14 @@ $(document).ready(function () {
     $timerPanel.text(seconds + 's')
     timerID = setInterval(timerCount, 1000)
   }
-  function timerStop() {
+  function timerStop () {
     clearInterval(timerID)
   }
-  function startScore() {
+  function startScore () {
     score = 0
     $scorePanel.text(score)
   }
-  function addScore() {
+  function addScore () {
     score += 1
     $scorePanel.text(score)
   }
