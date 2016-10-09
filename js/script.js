@@ -10,7 +10,7 @@ $(document).ready(function () {
   var $restartButton = $('.restart')
 
   var colorArr = ['red', 'blue', 'yellow', 'green']
-  var wordArr = ['GREEN', 'PURPLE', 'GREY', 'BLACK', 'SILVER', 'YELLOW', 'RED', 'BLUE', 'GOLD', 'WHITE', 'PINK', 'CYAN']
+  var wordArr = ['GREEN', 'YELLOW', 'RED', 'BLUE']
   var timerID
   var score
   var seconds
@@ -18,6 +18,7 @@ $(document).ready(function () {
   $wordPanel.children().hide()
   $startButton.on('click', startClick)
 
+  // Shuffle the array
   function shuffle (array) {
     var i = 0
     var j = 0
@@ -30,6 +31,7 @@ $(document).ready(function () {
     }
     return array
   }
+  // Executes the functions after the "Start" button is clicked
   function startClick () {
     generateWord()
     generateColor()
@@ -42,6 +44,7 @@ $(document).ready(function () {
     $colorPanel.show()
     $restartButton.on('click', restartClick)
   }
+  // Executes the functions after the "Restart" button is clicked
   function restartClick () {
     timerStop()
     $restartButton.hide()
