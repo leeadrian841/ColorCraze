@@ -21,6 +21,16 @@ button {
   height: 50px;
   line-height: 50px;
 }
+.container-fluid {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 800px;
+  height: 800px;
+}
 .container {
   width: 650px;
   height: 370px;

@@ -48,7 +48,7 @@ $(document).ready(function () {
 
   // Executes the functions after the "Restart" button is clicked
   function restartClick() {
-    timerStop()
+    timerReset()
     $restartButton.hide()
     $startButton.show()
     $wordPanel.children().remove()
@@ -114,8 +114,10 @@ $(document).ready(function () {
     $timerPanel.text(seconds + 's')
     timerID = setInterval(timerCount, 1000)
   }
-  function timerStop() {
+  function timerReset() {
     clearInterval(timerID)
+    seconds = 30
+    $timerPanel.text(seconds + 's')
   }
   function startScore() {
     score = 0
