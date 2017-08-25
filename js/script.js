@@ -108,7 +108,7 @@ $(document).ready(function () {
       timerEnd()
       swal({
         title: "TIME UP!",
-        text: "Please click 'OK' to start a new game. Your score is " + score + ".",
+        text: "Your score is " + score + ".",
         showConfirmButton: true,
         confirmButtonText: "OK",
         confirmButtonColor: "#28a745",
