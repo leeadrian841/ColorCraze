@@ -105,14 +105,15 @@ $(document).ready(function () {
     seconds -= 1
     $timerPanel.text(seconds + 's')
     if (seconds === 0) {
-      // swal({
-      //   text: "TIME UP! Please click "OK" to start a new game. Your score is " + score + ".",
-      //   confirmButtonText: "OK",
-      //   confirmButtonColor: "#28a745"
-      // })
-      // swal('TIME UP! Please click "OK" to start a new game. Your score is ' + score + '.')
-      alert('TIME UP! Please click "OK" to start a new game. Your score is ' + score + '.')
-      location.reload()
+      timerEnd()
+      swal({
+        title: "TIME UP!",
+        text: "Please click 'OK' to start a new game. Your score is " + score + ".",
+        showConfirmButton: true,
+        confirmButtonText: "OK",
+        confirmButtonColor: "#28a745",
+        closeOnConfirm: true
+      })
     }
   }
   function timerStart() {
@@ -123,6 +124,11 @@ $(document).ready(function () {
   function timerReset() {
     clearInterval(timerID)
     seconds = 30
+    $timerPanel.text(seconds + 's')
+  }
+  function timerEnd() {
+    clearInterval(timerID)
+    seconds = 0
     $timerPanel.text(seconds + 's')
   }
   function startScore() {
