@@ -100,7 +100,9 @@ $(document).ready(function () {
     }
   }
 
-  // Timer utilities
+  //**************************
+  // Timer Utilities
+  //**************************
   function timerCount() {
     seconds -= 1
     $timerPanel.text(seconds + 's')
@@ -113,24 +115,41 @@ $(document).ready(function () {
         confirmButtonText: "OK",
         confirmButtonColor: "#28a745",
         closeOnConfirm: true
+      }).then(function () {
+        $restartButton.hide()
+        $startButton.show()
+        $wordPanel.children().remove()
+        $colorPanel.children().remove()
+        $wordPanel.children().hide()
+        $colorPanel.children().hide()
       })
     }
   }
+
+  // Start timer from 30s and decrease to 0s
   function timerStart() {
     seconds = 30
     $timerPanel.text(seconds + 's')
     timerID = setInterval(timerCount, 1000)
   }
+
+  // Set timer to 30s
   function timerReset() {
     clearInterval(timerID)
     seconds = 30
     $timerPanel.text(seconds + 's')
   }
+
+  // Set timer to 0s
   function timerEnd() {
     clearInterval(timerID)
     seconds = 0
     $timerPanel.text(seconds + 's')
   }
+
+  //**************************
+  // Scoring Utilities
+  //**************************
   function startScore() {
     score = 0
     $scorePanel.text(score)
