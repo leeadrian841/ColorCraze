@@ -113,8 +113,7 @@ $(document).ready(function () {
         text: "Your score is " + score + ".",
         showConfirmButton: true,
         confirmButtonText: "OK",
-        confirmButtonColor: "#28a745",
-        closeOnConfirm: true
+        confirmButtonColor: "#28a745"
       }).then(function () {
         $restartButton.hide()
         $startButton.show()

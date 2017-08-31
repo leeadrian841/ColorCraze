@@ -1,7 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Bungee+Shade';
 @import 'https://fonts.googleapis.com/css?family=Russo+One';
 body {
-  background-color: #FAE3C6;
+  background-color: #E5CFB5;
   text-align: center;
 }
 h1 {
@@ -64,7 +64,7 @@ button {
   float: left;
 }
 .colorPanel div:hover {
-  box-shadow: 0px 0px 15px 10px white;
+  box-shadow: 0px 0px 15px 10px #ABA8B2;
 }
 .timerHeader, .scoreHeader {
   height: 50px;
@@ -81,7 +81,7 @@ button {
   height: 90px;
 }
 .box.green {
-  background-color: #9AF20C;
+  background-color: #91E50B;
 }
 .box.red {
   background-color: #F20C1F;
@@ -97,7 +97,7 @@ button {
   font-weight: bolder;
 }
 .word.green {
-  color: #9AF20C;
+  color: #91E50B;
 }
 .word.red {
   color: #F20C1F;
