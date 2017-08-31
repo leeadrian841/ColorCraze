@@ -103,6 +103,7 @@ $(document).ready(function () {
   //**************************
   // Timer Utilities
   //**************************
+
   function timerCount() {
     seconds -= 1
     $timerPanel.text(seconds + 's')
@@ -110,8 +111,11 @@ $(document).ready(function () {
       timerEnd()
       swal({
         title: "TIME UP!",
-        text: "Your score is " + score + ".",
+        text: "Great! You scored " + score + ".",
         showConfirmButton: true,
+        allowEscapeKey: false,
+        allowOutsideClick: false,
+        allowEnterKey: false,
         confirmButtonText: "OK",
         confirmButtonColor: "#28a745"
       }).then(function () {
@@ -125,7 +129,7 @@ $(document).ready(function () {
     }
   }
 
-  // Start timer from 30s and decrease to 0s
+  // Start timer from 30s and decrease to 0s by timerCount()
   function timerStart() {
     seconds = 30
     $timerPanel.text(seconds + 's')
@@ -149,10 +153,14 @@ $(document).ready(function () {
   //**************************
   // Scoring Utilities
   //**************************
+
+  // Set score to 0
   function startScore() {
     score = 0
     $scorePanel.text(score)
   }
+
+  // Add score by 1
   function addScore() {
     score += 1
     $scorePanel.text(score)
