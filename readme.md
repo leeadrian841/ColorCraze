@@ -16,7 +16,7 @@ arrays.
 
 * [BootStrap](https://getbootstrap.com/)
 * jQuery
-* [SweetAlert2](https://limonte.github.io/sweetalert2/)
+* [SweetAlert2](https://sweetalert2.github.io/)
 
 [Play in Browser](https://leeadrian841.github.io/ColorCraze/)
 
